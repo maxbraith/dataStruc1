@@ -22,8 +22,14 @@ public class SetTest {
 
     @Test
     public void testListSet(){
-        fail("Not implemented yet");
-        //TODO: call all test methods on your ListSet
+        addContainsSizeTest(new ListSet<>());
+        addContainsSizeTest(new ListSet<>());
+        addContainsSizeTestLarge(new ListSet<>());
+        toOrderedListTest(new ListSet<>());
+        toOrderedListTestLarge(new ListSet<>());
+        unionTest1(new ListSet<>(), new ListSet<>());
+        unionTest2(new ListSet<>(), new ListSet<>());
+        intersectionTest1(new ListSet<>(), new ListSet<>());
     }
 
     public void addContainsSizeTest(Set<String> testSet){
@@ -31,6 +37,7 @@ public class SetTest {
         assertFalse(testSet.contains("anything"));
 
         testSet.add("Maria");
+        System.out.println(testSet);
         assertTrue(testSet.contains("Maria"));
         testSet.add("George");
         assertTrue(testSet.contains("George"));
