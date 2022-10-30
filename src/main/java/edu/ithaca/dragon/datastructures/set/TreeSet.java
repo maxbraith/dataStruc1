@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class TreeSet<T extends Comparable<T>> implements Set<T>{
     private BTNode<T> root;
 
-    public TreeSet(T item){
-        root = new BTNode<T>(item);
+    public TreeSet(){
+        root = new BTNode<T>(null);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T>{
 
     @Override
     public int size() {
-        return 0;
+        return BTNodeUtil.nodeCount(root);
     }
 
     @Override

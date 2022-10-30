@@ -9,8 +9,8 @@ public class BSTNodeUtil {
      * @throws IllegalArgumentException if root is null or the BST already contains item
      */
     public static <T extends Comparable<T>> void bstAddTail(BTNode<T> root, T item){
-        if(root == null || root.getItem().equals(item)){
-            throw new IllegalArgumentException();
+        if(root == null){
+            root = new BTNode<T>(item);
         }
         if(item.compareTo(root.getItem()) > 0){
             if(root.getRight() == null){
