@@ -6,7 +6,7 @@ import java.util.List;
 public class BTNodeUtil{
 
     public static <T extends Comparable<T>> int nodeCount(BTNode<T> root){
-        if(root == null){
+        if(root == null || root.getItem() == null){
             return 0;
         }
         else{
@@ -37,12 +37,12 @@ public class BTNodeUtil{
         }
     }
 
-    public static <T extends Comparable<T>> List<T> inOrderList(BTNode<T> root){
-        List myList = new ArrayList<T>();
+    public static <T extends Comparable<T>> ArrayList<T> inOrderList(BTNode<T> root){
+        ArrayList<T> myList = new ArrayList<T>();
         if(root!=null){
-            myList.add(inOrderList(root.getLeft())); 
+            inOrderList(root.getLeft()); 
             myList.add(root.getItem()); 
-            myList.add(inOrderList(root.getRight()));
+            inOrderList(root.getRight());
         }
         return myList;
     }

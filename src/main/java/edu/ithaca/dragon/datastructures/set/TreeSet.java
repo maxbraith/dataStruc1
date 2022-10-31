@@ -12,7 +12,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T>{
 
     @Override
     public void add(T item) {
-        BSTNodeUtil.bstAdd(root, item);
+        root = BSTNodeUtil.bstAdd(root, item);
     }
 
     @Override
@@ -27,12 +27,16 @@ public class TreeSet<T extends Comparable<T>> implements Set<T>{
 
     @Override
     public ArrayList<T> toOrderedList() {
-        return null;
+        return BTNodeUtil.inOrderList(root);
     }
 
     @Override
     public Set<T> union(Set<T> otherSet) {
-        return null;
+       ArrayList<T> otherSetList = otherSet.toOrderedList();
+       for(int i =0; i<otherSetList.size(); i++){
+            BSTNodeUtil.bstAdd(root, otherSetList.get(i));
+       }
+       return this;
     }
 
     @Override
