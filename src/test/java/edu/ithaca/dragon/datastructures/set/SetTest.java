@@ -233,4 +233,98 @@ public class SetTest {
         assertTrue(ansSet3.contains(5));
         assertTrue(ansSet3.contains(6));
     }
+
+    @Test
+    public void ListSetTimer() {
+        int interval = 300;
+        long start;
+        long end;
+        long difference;
+        System.out.println("----- Add Method -----");
+        System.out.println("Num of Items\tTime");
+        for (int i = 1; i < 51; i ++) {
+            Set<String> test = new ListSet<>();
+            start = System.nanoTime();
+            for (int j = 1; j < interval * i; j++) {
+                test.add(Integer.toString(i * j));
+            }
+            end = System.nanoTime();
+            difference = end - start;
+            System.out.println(i + "\t" + difference);
+        }
+
+        System.out.println("\n----- Contains Method -----");
+        System.out.println("Num of Items\tTime");
+        for (int i = 1; i < 51; i ++) {
+            Set<String> test = new ListSet<>();
+            for (int j = 1; j < interval * i; j++) {
+                test.add(Integer.toString(i * j));
+            }
+            start = System.nanoTime();
+            test.contains(Integer.toString(i));
+            end = System.nanoTime();
+            difference = end - start;
+            System.out.println(i + "\t" + difference);
+        }
+
+        System.out.println("\n----- Size Method -----");
+        System.out.println("Num of Items\tTime");
+        for (int i = 1; i < 51; i ++) {
+            Set<String> test = new ListSet<>();
+            for (int j = 1; j < interval * i; j++) {
+                test.add(Integer.toString(i * j));
+            }
+            start = System.nanoTime();
+            test.size();
+            end = System.nanoTime();
+            difference = end - start;
+            System.out.println(i + "\t" + difference);
+        }
+
+        System.out.println("\n----- toOrderedList Method -----");
+        System.out.println("Num of Items\tTime");
+        for (int i = 1; i < 51; i ++) {
+            Set<String> test = new ListSet<>();
+            for (int j = 1; j < interval * i; j++) {
+                test.add(Integer.toString(i * j));
+            }
+            start = System.nanoTime();
+            test.toOrderedList();
+            end = System.nanoTime();
+            difference = end - start;
+            System.out.println(i + "\t" + difference);
+        }
+
+        System.out.println("\n----- Union Method -----");
+        System.out.println("Num of Items\tTime");
+        for (int i = 1; i < 51; i ++) {
+            Set<String> test1 = new ListSet<>();
+            Set<String> test2 = new ListSet<>();
+            for (int j = 1; j < interval * i; j++) {
+                test1.add(Integer.toString(i * j));
+                test2.add(Integer.toString(i * j));
+            }
+            start = System.nanoTime();
+            test1.union(test2);
+            end = System.nanoTime();
+            difference = end - start;
+            System.out.println(i + "\t" + difference);
+        }
+
+        System.out.println("\n----- Intersection Method -----");
+        System.out.println("Num of Items\tTime");
+        for (int i = 1; i < 51; i ++) {
+            Set<String> test1 = new ListSet<>();
+            Set<String> test2 = new ListSet<>();
+            for (int j = 1; j < interval * i; j++) {
+                test1.add(Integer.toString(i * j));
+                test2.add(Integer.toString(i * j));
+            }
+            start = System.nanoTime();
+            test1.intersection(test2);
+            end = System.nanoTime();
+            difference = end - start;
+            System.out.println(i + "\t" + difference);
+        }
+    }
 }
