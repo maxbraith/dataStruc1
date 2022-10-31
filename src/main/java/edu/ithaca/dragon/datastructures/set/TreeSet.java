@@ -32,16 +32,29 @@ public class TreeSet<T extends Comparable<T>> implements Set<T>{
 
     @Override
     public Set<T> union(Set<T> otherSet) {
-       ArrayList<T> otherSetList = otherSet.toOrderedList();
-       for(int i =0; i<otherSetList.size(); i++){
-            BSTNodeUtil.bstAdd(root, otherSetList.get(i));
-       }
-       return this;
+        ArrayList<T> thisSetList = this.toOrderedList();
+        ArrayList<T> otherSetList = otherSet.toOrderedList();
+        Set<T> unionTree = new TreeSet<T>();
+        for(int i=0; i<thisSetList.size(); i++){
+            unionTree.add(thisSetList.get(i));
+        }
+        for(int i =0; i<otherSetList.size(); i++){
+            unionTree.add(otherSetList.get(i));
+        }
+        return unionTree;
     }
 
     @Override
     public Set<T> intersection(Set<T> otherSet) {
-        return null;
+        ArrayList<T> thisSetList = this.toOrderedList();
+        Set<T> intersectionTree = new TreeSet<T>();
+        for(int i=0; i<thisSetList.size(); i++){
+            if(otherSet.contains(thisSetList.get(i))){
+                intersectionTree.add(thisSetList.get(i));
+            }
+        }
+        return intersectionTree;
+
     }
 
 }
