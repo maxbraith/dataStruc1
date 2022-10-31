@@ -27,7 +27,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T>{
 
     @Override
     public ArrayList<T> toOrderedList() {
-        return BTNodeUtil.inOrderList(root);
+        return BTNodeUtil.inOrderList(root, new ArrayList<T>());
     }
 
     @Override

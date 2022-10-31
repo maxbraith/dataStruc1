@@ -37,12 +37,23 @@ public class BTNodeUtil{
         }
     }
 
-    public static <T extends Comparable<T>> ArrayList<T> inOrderList(BTNode<T> root){
-        ArrayList<T> myList = new ArrayList<T>();
-        if(root!=null){
-            inOrderList(root.getLeft()); 
-            myList.add(root.getItem()); 
-            inOrderList(root.getRight());
+    public static <T extends Comparable<T>> String inOrderString(BTNode<T> root){
+        if(root==null){
+            return "";
+        }
+        else{
+            return inOrderString(root.getLeft()) + root.getItem().toString() + ", " + inOrderString(root.getRight());
+        }
+    }
+
+    public static <T extends Comparable<T>> ArrayList<T> inOrderList(BTNode<T> root, ArrayList<T> myList){
+        if(root==null){
+            return null;
+        }
+        else{
+            inOrderList(root.getLeft(), myList);  
+            myList.add(root.getItem());
+            inOrderList(root.getRight(), myList);
         }
         return myList;
     }
