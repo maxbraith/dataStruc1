@@ -52,7 +52,9 @@ public class BTNodeUtil{
         }
         else{
             inOrderList(root.getLeft(), myList);  
-            myList.add(root.getItem());
+            if(root.getItem() != null){
+                myList.add(root.getItem());
+            }
             inOrderList(root.getRight(), myList);
         }
         return myList;
