@@ -7,7 +7,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T>{
     private BTNode<T> root;
 
     public TreeSet(){
-        root = new BTNode<T>(null);
+        root = null;
     }
 
     @Override
